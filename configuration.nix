@@ -94,13 +94,26 @@
   };
 
   # Configure console keymap
-  console.keyMap = "uk";
+  console = {
+    keyMap = "uk";
+    font = "Lat2-Terminus16";
+  };
+
+  fonts = {
+    fontDir.enable = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      powerline-fonts
+      nerdfonts
+    ];
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tanq = {
     isNormalUser = true;
     description = "Tan Quach";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
@@ -113,6 +126,10 @@
     wget
     git
     tmux
+    curl
+    direnv
+    nix-direnv
+
     # TODO: Remove this from the main installation configuration
     vmware-workstation # only here so I can mount vmware shared folders while playing around with nixos 
   ];
@@ -125,12 +142,13 @@
   #   enableSSHSupport = true;
   # };
   programs = {
-    zsh = {
-      enable = true;
-      autosuggestions.enable = true;
-      syntaxHighlighting.enable = true;
-      ohMyZsh.enable = true;
-    };
+  # zsh = {
+  #   enable = true;
+  #   autosuggestions.enable = true;
+  #   syntaxHighlighting.enable = true;
+  #   ohMyZsh.enable = true;
+  # 
+  # };
 
     nm-applet.enable = true;
 
@@ -139,10 +157,14 @@
 
   # Virtualisation configuration
   virtualisation = {
+    # Uncomment the next one if you're running inside a vmware guest to enable guest features
     vmware.guest.enable = true;
+
+    # Docker configuration
     docker = {
       enable = true;
       enableOnBoot = true;
+      autoPrune.enable = true;
     };
   };
 
