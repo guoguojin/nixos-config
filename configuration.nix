@@ -74,6 +74,7 @@
 
     windowManager.i3 = {
       enable = true;
+      package = pkgs.i3-gaps;
       extraPackages = with pkgs; [
         dmenu
         i3status
@@ -129,6 +130,8 @@
     curl
     direnv
     nix-direnv
+    zsh
+    bash
 
     # TODO: Remove this from the main installation configuration
     vmware-workstation # only here so I can mount vmware shared folders while playing around with nixos 
@@ -142,14 +145,6 @@
   #   enableSSHSupport = true;
   # };
   programs = {
-  # zsh = {
-  #   enable = true;
-  #   autosuggestions.enable = true;
-  #   syntaxHighlighting.enable = true;
-  #   ohMyZsh.enable = true;
-  # 
-  # };
-
     nm-applet.enable = true;
 
     fuse.userAllowOther = true;
