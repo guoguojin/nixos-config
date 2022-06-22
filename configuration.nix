@@ -132,7 +132,8 @@
     nix-direnv
     zsh
     bash
-
+    go_1_18
+    
     # TODO: Remove this from the main installation configuration
     vmware-workstation # only here so I can mount vmware shared folders while playing around with nixos 
   ];

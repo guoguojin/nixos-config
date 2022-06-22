@@ -54,6 +54,7 @@ in {
 
       shellAliases = {
         ll = "ls -l";
+        psgrep = "ps aux | grep";
       };
 
       history = {
@@ -71,6 +72,16 @@ in {
           { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
         ];
       };
+    };
+
+    vscode = {
+      enable = true;
+      extensions = with pkgs; [ 
+        vscode-extensions.golang.go
+        vscode-extensions.vscodevim.vim
+        vscode-extensions.github.copilot
+        vscode-extensions.eamodio.gitlens
+      ];
     };
   };
 }
