@@ -23,13 +23,13 @@
         shukaku = lib.nixosSystem {
           inherit system;
           modules = [ 
-            ./configuration.nix
+            ./config/configuration.nix
 
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.${user} = {
-                imports = [ ./home.nix ];
+                imports = [ ./config/home.nix ];
               };
             }
           ];
