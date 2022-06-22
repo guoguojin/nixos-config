@@ -5,15 +5,15 @@ let
 in {
   home.file = {
     "${config.xdg.configHome}/zsh/.p10k.zsh" = {
-      source = ./p10k.zsh;
+      source = ./dotfiles/zsh/p10k.zsh;
     };
 
     "${config.xdg.configHome}/zsh/java_version.zsh" = {
-      source = ./java_version.zsh;
+      source = ./dotfiles/zsh/java_version.zsh;
     };
 
     "${config.xdg.configHome}/zsh/task.zsh" = {
-      source = ./task.zsh;
+      source = ./dotfiles/zsh/task.zsh;
     };
   };
   
