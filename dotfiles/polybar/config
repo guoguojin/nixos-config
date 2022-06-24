@@ -307,7 +307,7 @@ font-3 = "Noto Sans Mono:size=11;0"
 
 
 modules-left = load-average temperature2 memory2 cpu1 
-modules-center = 
+modules-center = weather 
 modules-right = backlight battery filesystem
 
 separator = |

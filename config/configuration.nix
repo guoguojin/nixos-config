@@ -128,7 +128,16 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; 
+  let 
+    python-packages = python-packages: with python-packages; [
+      pip
+      requests
+      setuptools
+    ];
+    python-with-packages = python3.withPackages python-packages;
+  in 
+  [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
@@ -141,13 +150,12 @@
     go_1_18
     gparted
     killall
-    python3Full
-    python310Packages.pip
-    python310Packages.requests
     lm_sensors
     pciutils
     usbutils
     pulseaudio-ctl
+    python-with-packages
+    rnix-lsp
     
     # TODO: Remove this from the main installation configuration
     vmware-workstation # only here so I can mount vmware shared folders while playing around with nixos 

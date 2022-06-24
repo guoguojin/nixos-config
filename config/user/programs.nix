@@ -22,6 +22,17 @@
       shellAliases = {
         ll = "ls -l";
         psgrep = "ps aux | grep";
+
+        ws1 = "i3-msg workspace \"1\";";
+        ws2 = "i3-msg workspace \"2\";";
+        ws3 = "i3-msg workspace \"3\";";
+        ws4 = "i3-msg workspace \"4\";";
+        ws5 = "i3-msg workspace \"5\";";
+        ws6 = "i3-msg workspace \"6\";";
+        ws7 = "i3-msg workspace \"7\";";
+        ws8 = "i3-msg workspace \"8\";";
+        ws9 = "i3-msg workspace \"9\";";
+        ws10 = "i3-msg workspace \"10\";";
       };
 
       history = {
