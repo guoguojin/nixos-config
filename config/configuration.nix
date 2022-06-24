@@ -143,6 +143,7 @@
     killall
     python3Full
     python310Packages.pip
+    python310Packages.requests
     lm_sensors
     pciutils
     usbutils
