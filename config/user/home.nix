@@ -15,6 +15,14 @@ in {
     "${config.xdg.configHome}/zsh/task.zsh" = {
       source = ../../dotfiles/zsh/task.zsh;
     };
+
+    "${config.xdg.configHome}/i3/config" = {
+      source = ../../dotfiles/i3/config;
+    };
+
+    "${config.xdg.configHome}/polybar" = {
+      source = ../../dotfiles/polybar;
+    };
   };
   
   home = {

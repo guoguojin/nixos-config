@@ -106,6 +106,11 @@
     fonts = with pkgs; [
       powerline-fonts
       nerdfonts
+      source-code-pro
+      font-awesome
+      corefonts
+      carlito
+      vegur
     ];
   };
 
@@ -115,6 +120,7 @@
     description = "Tan Quach";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
+    initialPassword = "letmein";
   };
 
   # Allow unfree packages
@@ -133,6 +139,14 @@
     zsh
     bash
     go_1_18
+    gparted
+    killall
+    python3Full
+    python310Packages.pip
+    lm_sensors
+    pciutils
+    usbutils
+    pulseaudio-ctl
     
     # TODO: Remove this from the main installation configuration
     vmware-workstation # only here so I can mount vmware shared folders while playing around with nixos 
@@ -168,6 +182,23 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  services = {
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse.enable = true;
+    };
+    picom.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
