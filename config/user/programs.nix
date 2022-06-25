@@ -64,12 +64,12 @@
 
     autorandr.enable = true;
     
-    vim = {
-      enable = true;
-      plugins = with pkgs.vimPlugins; [
-        nerdtree
-        nerdtree-git-plugin
-      ];
-    };
+    # vim = {
+    #   enable = true;
+    #   plugins = with pkgs.vimPlugins; [
+    #     nerdtree
+    #     nerdtree-git-plugin
+    #   ];
+    # };
   };
 }

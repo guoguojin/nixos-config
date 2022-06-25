@@ -176,9 +176,6 @@ bindsym $mod+Mod1+Shift+0 move container to workspace $ws20; workspace $ws20
 # start dmenu
 bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
-# start xfce-appfinder
-bindsym mod1+F1 exec --no-startup-id xfce4-appfinder;focus
-
 # gmrun
 bindsym mod1+F2 exec --no-startup-id gmrun
 
