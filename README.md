@@ -89,7 +89,7 @@ cd -
 
 > `cd -` returns you to the last directory you were in, a bit like popd would do if you had used a pushd to change directories.
 
-Edit `config/configuration.nix` and `config/user/home.nix` to change your user name and user details (I know, I need to put this in one place and have home.nix inherit it, but I haven't figured it out yet), and the initialPassword of your choosing.
+Edit `flake.nix` to change your user and username, and the optionally edit `config/configuration.nix` to change the initialPassword of your choosing.
 
 > initialPassword is the password to give your user when creating the user. You can generate a hashed password and provide that in the nix configuration files, but I personally don't like that idea. Better to have the user change their password after the machine has been built and they have logged in. If you do not set the initialPassword, the user will not be able to log in. Instead you will need to log in with the root account, set the user password and then you will be able to log in to the user account.
 

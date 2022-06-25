@@ -1,8 +1,6 @@
-{ config, pkgs, nixpkgs, ... }:
+{ config, pkgs, user, nixpkgs, ... }:
 
-let
-  user = "tanq";
-in {
+{
   home.file = {
     "${config.xdg.configHome}/zsh/.p10k.zsh" = {
       source = ../../dotfiles/zsh/p10k.zsh;

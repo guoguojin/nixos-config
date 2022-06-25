@@ -61,5 +61,15 @@
         vscode-extensions.eamodio.gitlens
       ];
     };
+
+    autorandr.enable = true;
+    
+    vim = {
+      enable = true;
+      plugins = with pkgs.vimPlugins; [
+        nerdtree
+        nerdtree-git-plugin
+      ];
+    };
   };
 }

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, user, username, ... }:
 
 {
   imports =
@@ -76,6 +76,7 @@
       enable = true;
       package = pkgs.i3-gaps;
       extraPackages = with pkgs; [
+        autotiling
         dmenu
         i3status
         i3lock
@@ -115,16 +116,24 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tanq = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "Tan Quach";
+    description = "${username}";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     initialPassword = "letmein";
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: rec {
+      polybar = pkgs.polybar.override {
+        i3GapsSupport = true;
+        alsaSupport = true;
+      };
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -138,7 +147,7 @@
     python-with-packages = python3.withPackages python-packages;
   in 
   [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
     tmux
@@ -156,6 +165,7 @@
     pulseaudio-ctl
     python-with-packages
     rnix-lsp
+    terminator
     
     # TODO: Remove this from the main installation configuration
     vmware-workstation # only here so I can mount vmware shared folders while playing around with nixos 

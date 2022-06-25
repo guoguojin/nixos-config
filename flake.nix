@@ -12,6 +12,7 @@
   outputs = { self, nixpkgs, home-manager, ... }:
     let
       user = "tanq";
+      username = "Tan Quach";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -21,13 +22,16 @@
     in {
       nixosConfigurations = {
         shukaku = lib.nixosSystem {
-          inherit system;
-          modules = [ 
+          inherit system; 
+          specialArgs = { inherit user username; };
+
+          modules = [
             ./config/configuration.nix
 
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit user; };
               home-manager.users.${user} = {
                 imports = [ ./config/home.nix ];
               };

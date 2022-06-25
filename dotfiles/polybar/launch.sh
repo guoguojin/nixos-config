@@ -7,13 +7,10 @@
 # Tip : There are other interesting fonts that provide icons like nerd-fonts-complete
 # --log=error
 # Terminate already running bar instances
-killall -q polybar
+pkill polybar
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
-
-count=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
-
 
 if type "xrandr" > /dev/null; then
   for m in $(xrandr --listmonitors | grep -v "^Monitors" | grep "+\*" | awk '{print $4}'); do
