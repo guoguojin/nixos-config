@@ -167,6 +167,7 @@
     pulseaudio-ctl
     python-with-packages
     rnix-lsp
+    telegram-desktop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
