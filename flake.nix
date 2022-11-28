@@ -20,7 +20,7 @@
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
-        shukaku = lib.nixosSystem {
+        rogue = lib.nixosSystem {
           inherit system;
           modules = [ 
             ./config/configuration.nix

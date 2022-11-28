@@ -14,17 +14,17 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/6b5b6a45-82ef-4163-b73e-3d77baccbc88";
+    { device = "/dev/disk/by-label/root";
       fsType = "ext4";
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/86BA-DFA2";
+    { device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
     };
 
   fileSystems."/home/tanq/code" =
-    { device = "/dev/disk/by-uuid/ec51bea6-48a7-4a01-af74-e9a440207cc9";
+    { device = "/dev/disk/by-label/framework";
       fsType = "ext4";
     };
 
