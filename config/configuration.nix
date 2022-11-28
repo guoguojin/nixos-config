@@ -49,7 +49,7 @@
   services.xserver = {
     layout = "gb";
     xkbVariant = "";
-    xkbOption = "eurosign:e";
+    xkbOptions = "eurosign:e";
   };
 
   # Configure console keymap
@@ -59,7 +59,7 @@
   fonts = {
     fontDir.enable = true;
     enableGhostscriptFonts = true;
-    fonts with pkgs; [
+    fonts = with pkgs; [
       powerline-fonts
       nerdfonts
       source-code-pro
@@ -115,7 +115,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal.gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -127,7 +127,7 @@
     description = "Tan Quach";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
-    initialPassword = "letmein"
+    initialPassword = "letmein";
     packages = with pkgs; [
     #  firefox
     #  thunderbird
